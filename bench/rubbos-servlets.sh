@@ -20,13 +20,13 @@
 # How many Tomcats? 1, 2 or 3?
 SCALE=1
 
-TOMCAT1=54.205.112.161
+TOMCAT1=54.205.97.115
 TOMCAT2=10.0.0.1
 TOMCAT3=10.0.0.1
 
-CLIENT=54.205.107.240
-NGINX=54.227.101.173
-MYSQL=54.204.198.69
+CLIENT=67.202.29.236
+NGINX=50.19.68.106
+MYSQL=54.205.233.85
 
 DATE=$(date +"%F")
 
@@ -55,17 +55,17 @@ enable_servers () {
 
 start_servers () {
   echo "Starting server 1..."
-  ssh $TOMCAT1 -n -l vagrant /home/vagrant/tomcat/bin/startup.sh
+  ssh $TOMCAT1 -n -l ubuntu /home/ubuntu/tomcat/bin/startup.sh
   case "$SCALE" in
     "2")
         echo "Starting server 2..."
-        ssh $TOMCAT2 -n -l vagrant /home/vagrant/tomcat/bin/startup.sh
+        ssh $TOMCAT2 -n -l ubuntu /home/ubuntu/tomcat/bin/startup.sh
         ;;
     "3")
         echo "Starting server 2..."
-        ssh $TOMCAT2 -n -l vagrant /home/vagrant/tomcat/bin/startup.sh
+        ssh $TOMCAT2 -n -l ubuntu /home/ubuntu/tomcat/bin/startup.sh
         echo "Starting server 3..."
-        ssh $TOMCAT3 -n -l vagrant /home/vagrant/tomcat/bin/startup.sh
+        ssh $TOMCAT3 -n -l ubuntu /home/ubuntu/tomcat/bin/startup.sh
         ;;
     *)
         :
@@ -79,17 +79,17 @@ start_servers () {
 
 stop_servers () {
   echo "Stopping server 1..."
-  ssh $TOMCAT1 -n -l vagrant /home/vagrant/tomcat/bin/shutdown.sh
+  ssh $TOMCAT1 -n -l ubuntu /home/ubuntu/tomcat/bin/shutdown.sh
   case "$SCALE" in
     "2")
         echo "Stopping server 2..."
-        ssh $TOMCAT2 -n -l vagrant /home/vagrant/tomcat/bin/shutdown.sh
+        ssh $TOMCAT2 -n -l ubuntu /home/ubuntu/tomcat/bin/shutdown.sh
         ;;
     "3")
         echo "Stopping server 2..."
-        ssh $TOMCAT2 -n -l vagrant /home/vagrant/tomcat/bin/shutdown.sh
+        ssh $TOMCAT2 -n -l ubuntu /home/ubuntu/tomcat/bin/shutdown.sh
         echo "Stopping server 3..."
-        ssh $TOMCAT3 -n -l vagrant /home/vagrant/tomcat/bin/shutdown.sh
+        ssh $TOMCAT3 -n -l ubuntu /home/ubuntu/tomcat/bin/shutdown.sh
         ;;
     *)
         :
