@@ -1,7 +1,0 @@
-RUBBoS workload test: 400 simulated users targeting 1 application servers
-Start: 2013-11-11 02:40:37 - Finish: 2013-11-11 02:48:51
-rubbos-bd stats: CPU Idle: 53.79% Commit: 21.11%
-rubbos-nginx stats: CPU Idle: 92.48% Commit: 4.12%
-rubbos-tomcat1 stats: CPU Idle: 67.44% Commit: 35.12%
-rubbos-client stats: CPU Idle: 42.25% Commit: 44.75%
-End of test results
