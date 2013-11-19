@@ -1,0 +1,153 @@
+<center><h2>*** Performance Report ***</h2></center><br>
+<A HREF="perf.html">Overall performance report</A><br>
+<A HREF="stat_client0.html">Main client (localhost) statistics</A><br>
+<p><br>&nbsp&nbsp&nbsp<A HREF="perf.html#node">Node information</A><br>
+&nbsp&nbsp&nbsp<A HREF="#time">Test timing information</A><br>
+&nbsp&nbsp&nbsp<A HREF="#up_stat">Up ramp statistics</A><br>
+&nbsp&nbsp&nbsp<A HREF="#run_stat">Runtime session statistics</A><br>
+&nbsp&nbsp&nbsp<A HREF="#down_stat">Down ramp statistics</A><br>
+&nbsp&nbsp&nbsp<A HREF="#all_stat">Overall statistics</A><br>
+&nbsp&nbsp&nbsp<A HREF="#cpu_graph">CPU usage graphs</A><br>
+&nbsp&nbsp&nbsp<A HREF="#procs_graph">Processes usage graphs</A><br>
+&nbsp&nbsp&nbsp<A HREF="#mem_graph">Memory usage graph</A><br>
+&nbsp&nbsp&nbsp<A HREF="#disk_graph">Disk usage graphs</A><br>
+&nbsp&nbsp&nbsp<A HREF="#net_graph">Network usage graphs</A><br>
+<br><A NAME="node"></A><h3>Node Information</h3><br>
+<B>Web server</B><br>
+Host  : rubbos-nginx<br>
+Kernel: Linux version 3.2.0-52-generic (buildd@roseapple) (gcc version 4.6.3 (Ubuntu/Linaro 4.6.3-1ubuntu5) ) #78-Ubuntu SMP Fri Jul 26 16:21:44 UTC 2013<br>
+processor	: 0<br>
+processor	: 1<br>
+vendor_id	: GenuineIntel<br>
+vendor_id	: GenuineIntel<br>
+model		: 37<br>
+model name	: Intel(R) Core(TM) i5 CPU       M 430  @ 2.27GHz<br>
+model		: 37<br>
+model name	: Intel(R) Core(TM) i5 CPU       M 430  @ 2.27GHz<br>
+cpu MHz		: 2251.728<br>
+cpu MHz		: 2251.728<br>
+cache size	: 6144 KB<br>
+cache_alignment	: 64<br>
+cache size	: 6144 KB<br>
+cache_alignment	: 64<br>
+MemTotal:         503256 kB<br>
+SwapTotal:        786428 kB<br>
+<br><B>Database server</B><br>
+Host  : rubbos-bd<br>
+Kernel: Linux version 3.2.0-23-generic (buildd@crested) (gcc version 4.6.3 (Ubuntu/Linaro 4.6.3-1ubuntu4) ) #36-Ubuntu SMP Tue Apr 10 20:39:51 UTC 2012<br>
+processor	: 0<br>
+processor	: 1<br>
+vendor_id	: GenuineIntel<br>
+vendor_id	: GenuineIntel<br>
+model		: 37<br>
+model name	: Intel(R) Core(TM) i5 CPU       M 430  @ 2.27GHz<br>
+model		: 37<br>
+model name	: Intel(R) Core(TM) i5 CPU       M 430  @ 2.27GHz<br>
+cpu MHz		: 2251.901<br>
+cpu MHz		: 2251.901<br>
+cache size	: 6144 KB<br>
+cache_alignment	: 64<br>
+cache size	: 6144 KB<br>
+cache_alignment	: 64<br>
+MemTotal:        1019352 kB<br>
+SwapTotal:        786428 kB<br>
+<br><B>Local client</B><br>
+Host  : rubbos-client<br>
+Kernel: Linux version 3.2.0-23-generic (buildd@crested) (gcc version 4.6.3 (Ubuntu/Linaro 4.6.3-1ubuntu4) ) #36-Ubuntu SMP Tue Apr 10 20:39:51 UTC 2012<br>
+processor	: 0<br>
+processor	: 1<br>
+vendor_id	: GenuineIntel<br>
+vendor_id	: GenuineIntel<br>
+model		: 37<br>
+model name	: Intel(R) Core(TM) i5 CPU       M 430  @ 2.27GHz<br>
+model		: 37<br>
+model name	: Intel(R) Core(TM) i5 CPU       M 430  @ 2.27GHz<br>
+cpu MHz		: 2253.217<br>
+cpu MHz		: 2253.217<br>
+cache size	: 6144 KB<br>
+cache_alignment	: 64<br>
+cache size	: 6144 KB<br>
+cache_alignment	: 64<br>
+MemTotal:         503280 kB<br>
+SwapTotal:        786428 kB<br>
+<br><p><A NAME="time"></A><h3>Test timing information</h3><p>
+<TABLE BORDER=1>
+<THEAD><TR><TH>Phase<TH>Main client<TBODY>
+<TR><TD><B>Test start</B><TD>2013-11-12 10:12:49
+<TR><TD><B>Up ramp start</B><TD>2013-11-12 10:12:59
+<TR><TD><B>Runtime session start</B><TD>2013-11-12 10:13:29
+<TR><TD><B>Down ramp start</B><TD>2013-11-12 10:17:30
+<TR><TD><B>Test end</B><TD>2013-11-12 10:19:55
+<TR><TD><B>Up ramp length</B><TD>     30 seconds 78 milliseconds  (requested 30000 ms)
+<TR><TD><B>Runtime session length</B><TD>    4 minutes 1 second 458 milliseconds  (requested 240000 ms)
+<TR><TD><B>Down ramp length</B><TD>     30 seconds 2 milliseconds  (requested 30000 ms)
+<TR><TD><B>Total test length</B><TD>    7 minutes 6 seconds 498 milliseconds 
+</TABLE><p>
+<br><A NAME="up_stat"></A>
+<br><h3>Up ramp statistics</h3><p>
+<TABLE BORDER=1>
+<THEAD><TR><TH>State name<TH>% of total<TH>Count<TH>Errors<TH>Minimum Time<TH>Maximum Time<TH>Average Time<TBODY>
+<TR><TD><div align=left><B>Average throughput</div></B><TD colspan=6><div align=center><B>61 req/s</B></div>
+<TR><TD><div align=left>Completed sessions</div><TD colspan=6><div align=left>76</div>
+<TR><TD><div align=left>Total time</div><TD colspan=6><div align=left>1348 seconds</div>
+<TR><TD><div align=left><B>Average session time</div></B><TD colspan=6><div align=left><B>17.7368 seconds</B></div>
+</TABLE><p>
+<br><A NAME="run_stat"></A>
+<br><h3>Runtime session statistics</h3><p>
+<TABLE BORDER=1>
+<THEAD><TR><TH>State name<TH>% of total<TH>Count<TH>Errors<TH>Minimum Time<TH>Maximum Time<TH>Average Time<TBODY>
+<TR><TD><div align=left><B>Average throughput</div></B><TD colspan=6><div align=center><B>12 req/s</B></div>
+<TR><TD><div align=left>Completed sessions</div><TD colspan=6><div align=left>189</div>
+<TR><TD><div align=left>Total time</div><TD colspan=6><div align=left>13405 seconds</div>
+<TR><TD><div align=left><B>Average session time</div></B><TD colspan=6><div align=left><B>70.9259 seconds</B></div>
+</TABLE><p>
+<br><A NAME="down_stat"></A>
+<br><h3>Down ramp statistics</h3><p>
+<TABLE BORDER=1>
+<THEAD><TR><TH>State name<TH>% of total<TH>Count<TH>Errors<TH>Minimum Time<TH>Maximum Time<TH>Average Time<TBODY>
+<TR><TD><div align=left><B>Average throughput</div></B><TD colspan=6><div align=center><B>10 req/s</B></div>
+<TR><TD><div align=left>Completed sessions</div><TD colspan=6><div align=left>18</div>
+<TR><TD><div align=left>Total time</div><TD colspan=6><div align=left>3150 seconds</div>
+<TR><TD><div align=left><B>Average session time</div></B><TD colspan=6><div align=left><B>175 seconds</B></div>
+</TABLE><p>
+<br><A NAME="all_stat"></A>
+<br><h3>Overall statistics</h3><p>
+<TABLE BORDER=1>
+<THEAD><TR><TH>State name<TH>% of total<TH>Count<TH>Errors<TH>Minimum Time<TH>Maximum Time<TH>Average Time<TBODY>
+<TR><TD><div align=left><B>Average throughput</div></B><TD colspan=6><div align=center><B>17 req/s</B></div>
+<TR><TD><div align=left>Completed sessions</div><TD colspan=6><div align=left>308</div>
+<TR><TD><div align=left>Total time</div><TD colspan=6><div align=left>25919 seconds</div>
+<TR><TD><div align=left><B>Average session time</div></B><TD colspan=6><div align=left><B>84.1526 seconds</B></div>
+</TABLE><p>
+<br><A NAME="cpu_graph"></A>
+<br><h3>CPU Usage graphs</h3><p>
+<TABLE>
+<TR><TD><IMG SRC="cpu_busy.gif"><TD><IMG SRC="client_cpu_busy.gif">
+<TR><TD><IMG SRC="cpu_idle.gif"><TD><IMG SRC="client_cpu_idle.gif">
+<TR><TD><IMG SRC="cpu_user_kernel.gif"><TD><IMG SRC="client_cpu_user_kernel.gif">
+</TABLE><p>
+<br><A NAME="procs_graph"></A>
+<TABLE>
+<br><h3>Processes Usage graphs</h3><p>
+<TR><TD><IMG SRC="procs.gif"><TD><IMG SRC="client_procs.gif">
+<TR><TD><IMG SRC="ctxtsw.gif"><TD><IMG SRC="client_ctxtsw.gif">
+</TABLE><p>
+<br><A NAME="mem_graph"></A>
+<br><h3>Memory Usage graph</h3><p>
+<TABLE>
+<TR><TD><IMG SRC="mem_usage.gif"><TD><IMG SRC="client_mem_usage.gif">
+<TR><TD><IMG SRC="mem_cache.gif"><TD><IMG SRC="client_mem_cache.gif">
+</TABLE><p>
+<br><A NAME="disk_graph"></A>
+<br><h3>Disk Usage graphs</h3><p>
+<TABLE>
+<TR><TD><IMG SRC="disk_rw_req.gif"><TD><IMG SRC="client_disk_rw_req.gif">
+<TR><TD><IMG SRC="disk_tps.gif"><TD><IMG SRC="client_disk_tps.gif">
+</TABLE><p>
+<br><A NAME="net_graph"></A>
+<br><h3>Network Usage graphs</h3><p>
+<TABLE>
+<TR><TD><IMG SRC="net_rt_byt.gif"><TD><IMG SRC="client_net_rt_byt.gif">
+<TR><TD><IMG SRC="net_rt_pack.gif"><TD><IMG SRC="client_net_rt_pack.gif">
+<TR><TD><IMG SRC="socks.gif"><TD><IMG SRC="client_socks.gif">
+</TABLE><p>

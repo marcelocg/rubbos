@@ -1,0 +1,7 @@
+RUBBoS workload test: 1000 simulated users targeting 1 application servers
+Start: 2013-11-11 23:53:04 - Finish: 2013-11-11 00:01:13
+rubbos-bd stats: CPU Idle: % Commit: %
+rubbos-nginx stats: CPU Idle: % Commit: %
+rubbos-tomcat1 stats: CPU Idle: % Commit: %
+rubbos-client stats: CPU Idle: % Commit: %
+End of test results
