@@ -32,8 +32,8 @@ workload_remote_client_nodes =
 workload_remote_client_command = /usr/lib/jvm/java-7-oracle/bin/java -classpath RUBBoS edu.rice.rubbos.client.ClientEmulator
 workload_number_of_clients_per_node = 400
 
-workload_user_transition_table = /vagrant/RUBBoS/workload/user_transitions.txt
-workload_author_transition_table = /vagrant/RUBBoS/workload/author_transitions.txt
+workload_user_transition_table = /home/ubuntu/RUBBoS/workload/user_transitions.txt
+workload_author_transition_table = /home/ubuntu/RUBBoS/workload/author_transitions.txt
 workload_number_of_columns = 24
 workload_number_of_rows = 26
 workload_maximum_number_of_transitions = 1000
@@ -51,7 +51,7 @@ database_number_of_authors = 50
 database_number_of_users = 500000
 
 # Stories policy
-database_story_dictionnary = /vagrant/RUBBoS/database/dictionary
+database_story_dictionnary = /home/ubuntu/RUBBoS/database/dictionary
 database_story_maximum_length = 1024
 database_oldest_story_year = 1998
 database_oldest_story_month = 1
