@@ -188,7 +188,7 @@ collect_stats () {
   if [ "$SCALE" -eq 3 ]; then
     HOST=$TOMCAT3
     get_stats $HOST
-    echo $HOST stats: CPU Idle: $AVG_IDLE_CPU%    Memory Used: $AVG_MEM_USED%" >> $LOG_FILE
+    echo $HOST stats: CPU Idle: $AVG_IDLE_CPU%    Memory Used: $AVG_MEM_USED% >> $LOG_FILE
   fi
 
   echo "End of test results" >> $LOG_FILE
