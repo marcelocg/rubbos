@@ -33,19 +33,13 @@ DATE=$(date +"%F")
 enable_servers () {
   case "$SCALE" in
     "1")
-        sed -i -r -e 's/#?servlets_server = '$TOMCAT1'$/servlets_server = '$TOMCAT1'/' Client/rubbos.properties
-        sed -i -r -e 's/#?servlets_server = '$TOMCAT1','$TOMCAT2'$/#servlets_server = '$TOMCAT1','$TOMCAT2'/' Client/rubbos.properties
-        sed -i -r -e 's/#?servlets_server = '$TOMCAT1','$TOMCAT2','$TOMCAT3'$/#servlets_server = '$TOMCAT1','$TOMCAT2','$TOMCAT3'/' Client/rubbos.properties
+        sed -i -r -e '/#?servlets_server =/c\servlets_server = '$TOMCAT1 Client/rubbos.properties
         ;;
     "2")
-        sed -i -r -e 's/#?servlets_server = '$TOMCAT1'$/#servlets_server = '$TOMCAT1'/' Client/rubbos.properties
-        sed -i -r -e 's/#?servlets_server = '$TOMCAT1','$TOMCAT2'$/servlets_server = '$TOMCAT1','$TOMCAT2'/' Client/rubbos.properties
-        sed -i -r -e 's/#?servlets_server = '$TOMCAT1','$TOMCAT2','$TOMCAT3'$/#servlets_server = '$TOMCAT1','$TOMCAT2','$TOMCAT3'/' Client/rubbos.properties
+        sed -i -r -e '/#?servlets_server =/c\servlets_server = '$TOMCAT1','$TOMCAT2 Client/rubbos.properties
         ;;
     "3")
-        sed -i -r -e 's/#?servlets_server = '$TOMCAT1'$/#servlets_server = '$TOMCAT1'/' Client/rubbos.properties
-        sed -i -r -e 's/#?servlets_server = '$TOMCAT1','$TOMCAT2'$/#servlets_server = '$TOMCAT1','$TOMCAT2'/' Client/rubbos.properties
-        sed -i -r -e 's/#?servlets_server = '$TOMCAT1','$TOMCAT2','$TOMCAT3'$/servlets_server = '$TOMCAT1','$TOMCAT2','$TOMCAT3'/' Client/rubbos.properties
+        sed -i -r -e '/#?servlets_server =/c\servlets_server = '$TOMCAT1','$TOMCAT2','$TOMCAT3 Client/rubbos.properties
         ;;
     *)
         :
@@ -157,7 +151,7 @@ collect_stats () {
   if [ ! -e $TEST_RESULTS_DIR ]; then
     mkdir -p $TEST_RESULTS_DIR
   fi
-  LOG_FILE=$TEST_RESULTS_DIR/w"$1"s"$2"-$DATE-$START.log
+  LOG_FILE=$TEST_RESULTS_DIR/w"$1"s"$2"-$DATE-$START.txt
   AVG_IDLE_CPU=0
   AVG_MEM_USED=0
 
@@ -166,7 +160,7 @@ collect_stats () {
     STATS_FILE=$TEST_RESULTS_DIR/$1.stats
     scp $1:/var/log/sysstat/sa* $STATS_FILE > /dev/null
     AVG_IDLE_CPU=$(sar -f $STATS_FILE -s $START -e $FINISH | tail -1 | awk '{print $8}')
-    AVG_MEM_USED=$(sar -r -f $STATS_FILE -s $START -e $FINISH | tail -1 | awk '{print $3}')
+    AVG_MEM_USED=$(sar -r -f $STATS_FILE -s $START -e $FINISH | tail -1 | awk '{print $4}')
   }
 
   echo Preparing log file...
@@ -174,23 +168,27 @@ collect_stats () {
   echo Start: $DATE $START   -    Finish: $DATE $FINISH >> $LOG_FILE
   
 
-  for HOST in "$MYSQL" "$NGINX" "$TOMCAT1" "$CLIENT"
-  do
-    get_stats $HOST
-    echo $HOST stats: CPU Idle: $AVG_IDLE_CPU%    Memory Used: $AVG_MEM_USED% >> $LOG_FILE
-  done
+  get_stats $MYSQL
+  echo MYSQL stats.......: CPU Idle: $AVG_IDLE_CPU%    Memory Used: $AVG_MEM_USED% >> $LOG_FILE
 
-  if [ "$SCALE" -eq 2 ]; then
-    HOST=$TOMCAT2
-    get_stats $HOST
-    echo $HOST stats: CPU Idle: $AVG_IDLE_CPU%    Memory Used: $AVG_MEM_USED% >> $LOG_FILE
+  get_stats $NGINX
+  echo NGINX stats.......: CPU Idle: $AVG_IDLE_CPU%    Memory Used: $AVG_MEM_USED% >> $LOG_FILE
+
+  get_stats $CLIENT
+  echo CLIENT stats......: CPU Idle: $AVG_IDLE_CPU%    Memory Used: $AVG_MEM_USED% >> $LOG_FILE
+
+  get_stats $TOMCAT1
+  echo TOMCAT 01 stats...: CPU Idle: $AVG_IDLE_CPU%    Memory Used: $AVG_MEM_USED% >> $LOG_FILE
+
+  if [ "$SCALE" -ge 2 ]; then
+    get_stats $TOMCAT2
+    echo TOMCAT 02 stats...: CPU Idle: $AVG_IDLE_CPU%    Memory Used: $AVG_MEM_USED% >> $LOG_FILE
   fi
   if [ "$SCALE" -eq 3 ]; then
-    HOST=$TOMCAT3
-    get_stats $HOST
-    echo $HOST stats: CPU Idle: $AVG_IDLE_CPU%    Memory Used: $AVG_MEM_USED% >> $LOG_FILE
+    get_stats $TOMCAT3
+    echo TOMCAT 03 stats...: CPU Idle: $AVG_IDLE_CPU%    Memory Used: $AVG_MEM_USED% >> $LOG_FILE
   fi
-
+  bench/scrape.py $TEST_RESULTS_DIR/stat_client0.html $LOG_FILE
   echo "End of test results" >> $LOG_FILE
 
 }
@@ -228,7 +226,7 @@ cp ./workload/author_default_transitions.txt ./workload/author_transitions.txt
 
 
 # rubbos.properties_100 rubbos.properties_200 rubbos.properties_300 rubbos.properties_400 rubbos.properties_500 rubbos.properties_600 rubbos.properties_700 rubbos.properties_800 rubbos.properties_900 rubbos.properties_1000
-for workload in 100
+for workload in 200 300 400 500
 do
   echo "Ready to run $workload users workload"
 

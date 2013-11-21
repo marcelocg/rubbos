@@ -14,9 +14,7 @@ ejb_html_path =
 ejb_script_path =
 
 # Servlets server information
-#servlets_server = 192.168.0.4
 #servlets_server = 192.168.0.4,192.168.0.5
-servlets_server = 192.168.0.4,192.168.0.5,192.168.0.6
 servlets_html_path = /rubbos
 servlets_script_path = /rubbos/servlet
 
