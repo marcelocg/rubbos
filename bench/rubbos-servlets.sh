@@ -226,7 +226,7 @@ cp ./workload/author_default_transitions.txt ./workload/author_transitions.txt
 
 
 # rubbos.properties_100 rubbos.properties_200 rubbos.properties_300 rubbos.properties_400 rubbos.properties_500 rubbos.properties_600 rubbos.properties_700 rubbos.properties_800 rubbos.properties_900 rubbos.properties_1000
-for workload in 200 300 400 500
+for workload in 100 200 300 400 500 600 700 800 900 1000
 do
   echo "Ready to run $workload users workload"
 
