@@ -18,15 +18,15 @@
 ################################################################################
 
 # How many Tomcats? 1, 2 or 3?
-SCALE=1
+SCALE=3
+APP_SERVER_FLAVOR="t1.micro"
+TOMCAT1=50.16.127.169
+TOMCAT2=50.19.1.203
+TOMCAT3=54.211.125.134
 
-TOMCAT1=54.205.97.115
-TOMCAT2=10.0.0.1
-TOMCAT3=10.0.0.1
-
-CLIENT=67.202.29.236
-NGINX=50.19.68.106
-MYSQL=54.205.233.85
+CLIENT=174.129.147.208
+NGINX=54.221.178.8
+MYSQL=54.242.10.108
 
 DATE=$(date +"%F")
 
@@ -112,7 +112,7 @@ enable_stats () {
     turn_on_stats_on $HOST
   done
 
-  if [ "$SCALE" -eq 2 ]; then
+  if [ "$SCALE" -ge 2 ]; then
     turn_on_stats_on $TOMCAT2
   fi
   if [ "$SCALE" -eq 3 ]; then
@@ -135,7 +135,7 @@ disable_stats () {
     turn_off_stats_on $HOST
   done
 
-  if [ "$SCALE" -eq 2 ]; then
+  if [ "$SCALE" -ge 2 ]; then
     turn_off_stats_on $TOMCAT2
   fi
   if [ "$SCALE" -eq 3 ]; then
@@ -164,9 +164,11 @@ collect_stats () {
   }
 
   echo Preparing log file...
-  echo "RUBBoS workload test: $1 simulated users targeting $2 application servers" > $LOG_FILE
+  echo "RUBBoS Benchmark Test" > $LOG_FILE
+  echo "Workload..........: $1 users" >> $LOG_FILE
+  echo "Number of Servers.: $2 application servers" >> $LOG_FILE
+  echo "Server Flavor.....: $APP_SERVER_FLAVOR" >> $LOG_FILE
   echo Start: $DATE $START   -    Finish: $DATE $FINISH >> $LOG_FILE
-  
 
   get_stats $MYSQL
   echo MYSQL stats.......: CPU Idle: $AVG_IDLE_CPU%    Memory Used: $AVG_MEM_USED% >> $LOG_FILE
@@ -249,5 +251,8 @@ do
   stop_servers
 
   collect_stats $workload $SCALE
-done
 
+  echo -en "\007"
+  echo -en "\007"
+  echo -en "\007"
+done
