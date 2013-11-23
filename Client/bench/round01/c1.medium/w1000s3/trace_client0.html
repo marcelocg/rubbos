@@ -1,0 +1,64 @@
+<CENTER></A><A NAME="trace"><h2>*** Test trace ***</h2></CENTER><p>
+<A HREF="trace_client0.html">Main client traces</A><br>
+<br><p>
+&nbsp&nbsp&nbsp<A HREF="#up">Up ramp trace</A><br>
+&nbsp&nbsp&nbsp<A HREF="#run">Runtime session trace</A><br>
+&nbsp&nbsp&nbsp<A HREF="#down">Down ramp trace</A><br><p><p>
+ClientEmulator: Starting 1000 session threads<br>
+<br><A NAME="up"></A>
+<h3>ClientEmulator: Switching to ** UP RAMP **</h3><br><p>
+Exception in thread "UserSession13" java.lang.NullPointerException
+	at edu.rice.rubbos.client.UserSession.randomWordFromDictionary(UserSession.java:592)
+	at edu.rice.rubbos.client.UserSession.computeURLFromState(UserSession.java:827)
+	at edu.rice.rubbos.client.UserSession.run(UserSession.java:942)
+Exception in thread "UserSession594" java.lang.NullPointerException
+	at edu.rice.rubbos.client.UserSession.randomWordFromDictionary(UserSession.java:592)
+	at edu.rice.rubbos.client.UserSession.computeURLFromState(UserSession.java:753)
+	at edu.rice.rubbos.client.UserSession.run(UserSession.java:942)
+<br><A NAME="run"></A>
+<h3>ClientEmulator: Switching to ** RUNTIME SESSION **</h3><br><p>
+Exception in thread "UserSession417" java.lang.NullPointerException
+Exception in thread "UserSession571" java.lang.NullPointerException
+Exception in thread "UserSession775" java.lang.NullPointerException
+Exception in thread "UserSession585" java.lang.NullPointerException
+Exception in thread "UserSession924" java.lang.NullPointerException
+Exception in thread "UserSession364" java.lang.NullPointerException
+Thread UserSession284: Fatal error in computing next URL. Restarting from home page.<br>
+Thread UserSession382: Fatal error in computing next URL. Restarting from home page.<br>
+Thread UserSession678: Fatal error in computing next URL. Restarting from home page.<br>
+Exception in thread "UserSession897" java.lang.NullPointerException
+Thread UserSession615: Fatal error in computing next URL. Restarting from home page.<br>
+Thread UserSession749: Fatal error in computing next URL. Restarting from home page.<br>
+Exception in thread "UserSession215" java.lang.NullPointerException
+Exception in thread "UserSession187" java.lang.NullPointerException
+Exception in thread "UserSession368" java.lang.NullPointerException
+Exception in thread "UserSession358" java.lang.NullPointerException
+Exception in thread "UserSession238" java.lang.NullPointerException
+Exception in thread "UserSession353" java.lang.NullPointerException
+Exception in thread "UserSession44" java.lang.NullPointerException
+Exception in thread "UserSession414" java.lang.NullPointerException
+Exception in thread "UserSession614" java.lang.NullPointerException
+Exception in thread "UserSession779" java.lang.NullPointerException
+Exception in thread "UserSession635" java.lang.NullPointerException
+Exception in thread "UserSession710" java.lang.NullPointerException
+Exception in thread "UserSession630" java.lang.NullPointerException
+Exception in thread "UserSession171" java.lang.NullPointerException
+Exception in thread "UserSession671" java.lang.NullPointerException
+Exception in thread "UserSession883" java.lang.NullPointerException
+Exception in thread "UserSession256" java.lang.NullPointerException
+Exception in thread "UserSession476" java.lang.NullPointerException
+Exception in thread "UserSession908" java.lang.NullPointerException
+Exception in thread "UserSession714" java.lang.NullPointerException
+Exception in thread "UserSession451" java.lang.NullPointerException
+Exception in thread "UserSession581" java.lang.NullPointerException
+<br><A NAME="down"></A>
+<h3>ClientEmulator: Switching to ** DOWN RAMP **</h3><br><p>
+Exception in thread "UserSession466" java.lang.NullPointerException
+Exception in thread "UserSession523" java.lang.NullPointerException
+Exception in thread "UserSession173" java.lang.NullPointerException
+Exception in thread "UserSession166" java.lang.NullPointerException
+Exception in thread "UserSession168" java.lang.NullPointerException
+ClientEmulator: Shutting down threads ...<br>
+Done
+
+<p><hr><p>

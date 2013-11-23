@@ -1,7 +1,0 @@
-RUBBoS workload test: 400 simulated users targeting 1 application servers
-Start: 2013-11-21 20:00:15 - Finish: 2013-11-21 20:05:26
-MYSQL stats.......: CPU Idle: 99.89% Memory Used: 23.17%
-NGINX stats.......: CPU Idle: 90.51% Memory Used: 11.05%
-CLIENT stats......: CPU Idle: 76.42% Memory Used: 16.84%
-TOMCAT 01 stats...: CPU Idle: 99.49% Memory Used: 35.37%
-End of test results
