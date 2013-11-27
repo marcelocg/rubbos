@@ -19,14 +19,14 @@
 
 # How many Tomcats? 1, 2 or 3?
 SCALE=3
-APP_SERVER_FLAVOR="c1.medium"
-TOMCAT1=10.245.38.127
-TOMCAT2=10.242.55.47
-TOMCAT3=10.245.166.230
+APP_SERVER_FLAVOR="c3.large"
+TOMCAT1=10.99.129.214
+TOMCAT2=10.179.135.208
+TOMCAT3=10.179.136.239
 
-CLIENT=10.179.133.158
-NGINX=10.154.136.126
-MYSQL=10.154.146.59
+CLIENT=10.99.137.11
+MYSQL=10.145.193.77
+NGINX=10.145.179.251
 
 DATE=$(date +"%F")
 
@@ -228,12 +228,12 @@ cp ./workload/author_default_transitions.txt ./workload/author_transitions.txt
 
 
 # rubbos.properties_100 rubbos.properties_200 rubbos.properties_300 rubbos.properties_400 rubbos.properties_500 rubbos.properties_600 rubbos.properties_700 rubbos.properties_800 rubbos.properties_900 rubbos.properties_1000
-for workload in 100 200 300 400 500 600 700 800 900 1000 1200 1400 1600 1800 2000 2200 2400 2600 2800 3000
+for workload in 100 200 300 400 500 600 700 800 900 1000 1200 1400 1600 1800 2000 2200 2400 2600 2800 3000 3200 3400 3600 3800 4000 4250 4500 4750 5000
 do
   echo "Ready to run $workload users workload"
 
   sed -i -r -e '/#?workload_number_of_clients_per_node =/c\workload_number_of_clients_per_node = '$workload Client/rubbos.properties
-  
+
   sed -i -r -e 's/httpd_hostname = (([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])/httpd_hostname = '$NGINX'/' Client/rubbos.properties
   sed -i -r -e 's/database_server = (([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])/database_server = '$MYSQL'/' Client/rubbos.properties
 

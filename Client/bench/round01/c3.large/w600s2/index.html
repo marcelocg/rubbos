@@ -1,0 +1,87 @@
+<h2>RUBBoS client emulator - (C) Rice University/INRIA 2001</h2><p>
+
+<h3>Test date: 2013-11-26 11:14:33</h3><br>
+
+<A HREF="#config">Test configuration</A><br>
+<A HREF="trace_client0.html">Test trace</A><br>
+<A HREF="perf.html">Test performance report</A><br><p>
+<p><hr><p>
+<CENTER><A NAME="config"></A><h2>*** Test configuration ***</h2></CENTER>
+<p><hr><p>
+
+<h3>### HTTP server information ###</h3>
+Server name       : 10.145.179.251<br>
+Server port       : 80<br>
+CJDBC server name : <br>
+EJB HTML files path   : <br>
+EJB Script files path : <br>
+Servlets HTML files path   : /rubbos<br>
+Servlets Script files path : /rubbos/servlet<br>
+Servlet Server list : 10.99.129.214,10.179.135.208<br>
+PHP HTML files path   : /PHP<br>
+PHP Script files path : /PHP<br>
+
+<h3><br>### Workload ###</h3>
+Remote client nodes            : 600<br>
+Remote client command          : /usr/lib/jvm/java-7-oracle/bin/java -classpath RUBBoS edu.rice.rubbos.client.ClientEmulator<br>
+Number of clients per node     : 600<br>
+User transition table          : /home/ubuntu/RUBBoS/workload/user_transitions.txt<br>
+Author transition table        : /home/ubuntu/RUBBoS/workload/author_transitions.txt<br>
+Number of columns              : 24<br>
+Number of rows                 : 26<br>
+Maximum number of transitions  : 1000<br>
+Number of stories per page     : 20<br>
+Think time                     : TPCW compatible with 7s mean<br>
+Up ramp time in ms             : 30000<br>
+Up ramp slowdown factor        : 2.0<br>
+Session run time in ms         : 240000<br>
+Down ramp time in ms           : 30000<br>
+Down ramp slowdown factor      : 3.0<br>
+Percentage of authors          : 10<br>
+
+<h3><br>### Database Information ###</h3>
+Database server                : 10.145.193.77<br>
+
+<h3><br>### Users policy ###</h3>
+Number of authors              : 50<br>
+Number of users                : 500000<br>
+
+<h3><br>### Stories policy ###</h3>
+Stories dictionary             : /home/ubuntu/RUBBoS/database/dictionary<br>
+Stories maximum lenth          : 1024<br>
+Oldest story year              : 1998<br>
+Oldest story month             : 1<br>
+
+<h3><br>### Comments policy ###</h3>
+Comment maximum length         : 1024<br>
+
+<h3><br>### Database Information ###</h3>
+Monitoring debugging level     : 0<br>
+Monitoring program             : /usr/bin/sar<br>
+Monitoring options             : -n DEV -n SOCK -rubw<br>
+Monitoring sampling in seconds : 1<br>
+Monitoring rsh                 : /usr/bin/ssh<br>
+Monitoring scp                 : /usr/bin/scp -q<br>
+Monitoring Gnuplot Terminal    : gif<br>
+Total number of clients for this experiment: 600<br>
+<CENTER></A><A NAME="trace"><h2>*** Monitoring ***</h2></CENTER>
+&nbsp &nbsp Command is: /usr/bin/ssh -x 10.145.179.251 rm -f /tmpweb_server<br>
+
+&nbsp &nbsp Command is: /usr/bin/ssh -x 10.145.193.77 rm -f /tmpdb_server<br>
+
+&nbsp &nbsp Command is: /usr/bin/ssh -x localhost rm -f /tmpclient0<br>
+
+&nbsp &nbsp Finished deleting old files<br>
+
+ClientEmulator: Starting monitoring program on Web server 10.145.179.251<br>
+
+&nbsp &nbsp Command is: /usr/bin/ssh -x 10.145.179.251 /bin/bash -c 'LANG=en_GB.UTF-8 /usr/bin/sar -n DEV -n SOCK -rubw 1 305 -o /tmpweb_server'<br>
+
+ClientEmulator: Starting monitoring program on Database server 10.145.193.77<br>
+
+&nbsp &nbsp Command is: /usr/bin/ssh -x 10.145.193.77 /bin/bash -c 'LANG=en_GB.UTF-8 /usr/bin/sar -n DEV -n SOCK -rubw 1 305 -o /tmpdb_server'<br>
+
+ClientEmulator: Starting monitoring program locally on client<br>
+
+&nbsp &nbsp Command is: /usr/bin/ssh -x localhost /bin/bash -c 'LANG=en_GB.UTF-8 /usr/bin/sar -n DEV -n SOCK -rubw 1 305 -o /home/ubuntu/RUBBoS/Client/bench/w600s2/client0'<br>
+

@@ -1,0 +1,15 @@
+RUBBoS Benchmark Test
+Workload..........: 1800 users
+Number of Servers.: 2 application servers
+Server Flavor.....: c3.large
+Start: 2013-11-26 12:15:12 - Finish: 2013-11-26 12:21:01
+MYSQL stats.......: CPU Idle: 89.89% Memory Used: 29.99%
+NGINX stats.......: CPU Idle: 84.44% Memory Used: 3.85%
+CLIENT stats......: CPU Idle: 94.17% Memory Used: 41.05%
+TOMCAT 01 stats...: CPU Idle: 91.09% Memory Used: 43.05%
+TOMCAT 02 stats...: CPU Idle: 91.22% Memory Used: 45.48%
+Transaction Count.: 64632
+Errors............: 3
+Avg. Response Time: 69 ms
+Throughput........: 269 req/s
+End of test results
