@@ -269,7 +269,7 @@ public class Stats
     long time = 0;
 
     System.out.println("<br><h3>"+title+" statistics</h3><p>");
-    System.out.println("<br><h5>90th% Time:</h5><p>" + get90thPercentTime());
+    System.out.println("<br><h5>"+title+" 90th% Time:</h5><p>" + get90thPercentTime() + "</p>");
     System.out.println("<TABLE BORDER=1>");
     System.out.println("<THEAD><TR><TH>State name<TH>% of total<TH>Count<TH>Errors<TH>Minimum Time<TH>Maximum Time<TH>Average Time<TBODY>");
     // Display stat for each state

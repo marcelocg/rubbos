@@ -13,14 +13,14 @@ try:
   with open(sys.argv[1], 'r') as content_file:
     stats = content_file.read()
     soup = BeautifulSoup(stats, "html5lib")
-    nth_percent = soup.find(text="90th% Time:").next_sibling.text
     tag = soup.find(text="Runtime session Total").parent.parent.parent
+    nth_percent = soup.find(text="Runtime session 90th% Time:").parent.next_sibling.text
 
     with open(sys.argv[2], 'a') as log_file:
       log_file.write( "Transaction Count.: " + tag.next_sibling.next_sibling.text + '\n')
       log_file.write( "Errors............: " + tag.next_sibling.next_sibling.next_sibling.text + '\n')
       log_file.write( "Avg. Response Time: " + tag.next_sibling.next_sibling.next_sibling.next_sibling.next_sibling.next_sibling.text )
-      log_file.write( "90th% Response Time: " + nth_percent )
+      log_file.write( "90th% Resp Time...: " + nth_percent + '\n')
       log_file.write( "Throughput........: " + tag.parent.next_sibling.contents[1].text )
 
 except IOError, Argument:
