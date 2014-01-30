@@ -1,6 +1,7 @@
 package edu.rice.rubbos.client;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 /**
  * This class provides thread-safe statistics. Each statistic entry is composed as follow:
@@ -247,10 +248,10 @@ public class Stats
   }
 
   private Long get90thPercentTime() {
-    responseTimes.sort();
-    int index = (long)(responseTimes.size() * 0.9);
+    Collections.sort(responseTimes);
+    int index = (int)(responseTimes.size() * 0.9);
 
-    return responseTimes.elementAt(index);
+    return responseTimes.get(index);
   }
 
   /**
