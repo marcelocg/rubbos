@@ -1,5 +1,7 @@
 package edu.rice.rubbos.client;
- 
+
+import java.util.ArrayList;
+
 /**
  * This class provides thread-safe statistics. Each statistic entry is composed as follow:
  * <pre>
@@ -24,7 +26,7 @@ public class Stats
   private long totalTime[];
   private int  nbSessions;   // Number of sessions succesfully ended
   private long sessionsTime; // Sessions total duration
-
+  private ArrayList<Long> responseTimes;
 
   /**
    * Creates a new <code>Stats</code> instance.
@@ -40,6 +42,7 @@ public class Stats
     minTime = new long[nbOfStats];
     maxTime = new long[nbOfStats];
     totalTime = new long[nbOfStats];
+    responseTimes = new ArrayList<Long>();
     reset();
   }
 
@@ -61,6 +64,7 @@ public class Stats
     }
     nbSessions = 0;
     sessionsTime = 0;
+    responseTimes.clear();
   }
 
   /**
@@ -125,6 +129,7 @@ public class Stats
       System.err.println("Negative time received in Stats.updateTime("+time+")<br>\n");
       return ;
     }
+    responseTimes.add(time);
     totalTime[index] += time;
     if (time > maxTime[index])
       maxTime[index] = time;
@@ -238,8 +243,15 @@ public class Stats
     }
     nbSessions   += anotherStat.nbSessions;
     sessionsTime += anotherStat.sessionsTime;
+    responseTimes.addAll(anotherStat.responseTimes);
   }
 
+  private Long get90thPercentTime() {
+    responseTimes.sort();
+    int index = (long)(responseTimes.size() * 0.9);
+
+    return responseTimes.elementAt(index);
+  }
 
   /**
    * Display an HTML table containing the stats for each state.
@@ -256,6 +268,7 @@ public class Stats
     long time = 0;
 
     System.out.println("<br><h3>"+title+" statistics</h3><p>");
+    System.out.println("<br><h5>90th% Time:</h5><p>" + get90thPercentTime());
     System.out.println("<TABLE BORDER=1>");
     System.out.println("<THEAD><TR><TH>State name<TH>% of total<TH>Count<TH>Errors<TH>Minimum Time<TH>Maximum Time<TH>Average Time<TBODY>");
     // Display stat for each state
