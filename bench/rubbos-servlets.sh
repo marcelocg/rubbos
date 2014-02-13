@@ -20,13 +20,13 @@
 # How many Tomcats? 1, 2 or 3?
 SCALE=1
 APP_SERVER_FLAVOR="t1.micro"
-TOMCAT1=10.80.121.32
+TOMCAT1=10.80.173.86
 TOMCAT2=10.179.135.208
 TOMCAT3=10.179.136.239
 
-CLIENT=10.152.190.241
-MYSQL=10.216.128.66
-NGINX=10.202.27.98
+CLIENT=10.99.130.96
+MYSQL=10.231.144.247
+NGINX=10.195.18.167
 
 DATE=$(date +"%F")
 
@@ -228,8 +228,7 @@ cp ./workload/author_default_transitions.txt ./workload/author_transitions.txt
 
 
 # rubbos.properties_100 rubbos.properties_200 rubbos.properties_300 rubbos.properties_400 rubbos.properties_500 rubbos.properties_600 rubbos.properties_700 rubbos.properties_800 rubbos.properties_900 rubbos.properties_1000
-#for workload in 100 200 300 400 500 600 700 800 900 1000 1200 1400 1600 1800 2000 2200 2400 2600 2800 3000 3200 3400 3600 3800 4000 4250 4500 4750 5000
-for workload in 100
+for workload in 100 200 300 400 500 600 700 800 900 1000 1200 1400 1600 1800 2000 2200 2400 2600 2800 3000 3200 3400 3600 3800 4000 4250 4500 4750 5000
 do
   echo "Ready to run $workload users workload"
 

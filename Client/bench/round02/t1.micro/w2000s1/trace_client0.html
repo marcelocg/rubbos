@@ -1,0 +1,32 @@
+<CENTER></A><A NAME="trace"><h2>*** Test trace ***</h2></CENTER><p>
+<A HREF="trace_client0.html">Main client traces</A><br>
+<br><p>
+&nbsp&nbsp&nbsp<A HREF="#up">Up ramp trace</A><br>
+&nbsp&nbsp&nbsp<A HREF="#run">Runtime session trace</A><br>
+&nbsp&nbsp&nbsp<A HREF="#down">Down ramp trace</A><br><p><p>
+ClientEmulator: Starting 2000 session threads<br>
+<br><A NAME="up"></A>
+<h3>ClientEmulator: Switching to ** UP RAMP **</h3><br><p>
+Exception in thread "UserSession808" java.lang.NullPointerException
+	at edu.rice.rubbos.client.UserSession.randomWordFromDictionary(UserSession.java:592)
+	at edu.rice.rubbos.client.UserSession.computeURLFromState(UserSession.java:827)
+	at edu.rice.rubbos.client.UserSession.run(UserSession.java:942)
+Exception in thread "UserSession238" java.lang.NullPointerException
+	at edu.rice.rubbos.client.UserSession.randomWordFromDictionary(UserSession.java:592)
+	at edu.rice.rubbos.client.UserSession.computeURLFromState(UserSession.java:758)
+	at edu.rice.rubbos.client.UserSession.run(UserSession.java:942)
+<br><A NAME="run"></A>
+<h3>ClientEmulator: Switching to ** RUNTIME SESSION **</h3><br><p>
+Exception in thread "UserSession755" java.lang.NullPointerException
+	at edu.rice.rubbos.client.UserSession.randomWordFromDictionary(UserSession.java:592)
+	at edu.rice.rubbos.client.UserSession.computeURLFromState(UserSession.java:758)
+	at edu.rice.rubbos.client.UserSession.run(UserSession.java:942)
+Exception in thread "UserSession1698" java.lang.NullPointerException
+Exception in thread "UserSession1893" java.lang.NullPointerException
+Exception in thread "UserSession231" java.lang.NullPointerException
+<br><A NAME="down"></A>
+<h3>ClientEmulator: Switching to ** DOWN RAMP **</h3><br><p>
+ClientEmulator: Shutting down threads ...<br>
+Done
+
+<p><hr><p>
